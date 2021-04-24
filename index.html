@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather</title>
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/f5560ee3b4.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="weather-app">
+        <form id="search-form">
+          <input type="search" id="city-input" placeholder="Enter a city..." />
+          <input type="submit" id="search-button" value="Search" />
+          <button type="button" id="location-button" class="location-button">
+            <i class="fas fa-map-marker-alt"></i>
+          </button>
+        </form>
+
+        <h1 id="city"></h1>
+        <h5 id="formatDate"></h5>
+        <div class="temperature-units">
+          <h2 id="temp"></h2>
+          <span class="units" id="units">
+            <a href="#" class="celsius" id="celsius">°C</a> /
+            <a href="#" class="fahrenheit" id="fahrenheit">°F</a>
+          </span>
+        </div>
+        <i class="fas fa-cloud-sun emoji"></i>
+        <h4>Cloudy</h4>
+
+        <div class="row g-2 text-center forecast" id="forecast">
+          <div class="col">
+            <h1>Sun</h1>
+            <i class="fas fa-cloud-sun"></i>
+            <h3>11°C</h3>
+            <h3>13°C</h3>
+          </div>
+          <div class="col">
+            <h1>Mon</h1>
+            <i class="fas fa-cloud-sun"></i>
+            <h3>13°C</h3>
+            <h3>15°C</h3>
+          </div>
+          <div class="col">
+            <h1>Tue</h1>
+            <i class="fas fa-cloud-sun"></i>
+            <h3>10°C</h3>
+            <h3>12°C</h3>
+          </div>
+          <div class="col">
+            <h1>Wed</h1>
+            <i class="fas fa-cloud-sun"></i>
+            <h3>9°C</h3>
+            <h3>11°C</h3>
+          </div>
+          <div class="col">
+            <h1>Thu</h1>
+            <i class="fas fa-cloud-sun"></i>
+            <h3>14°C</h3>
+            <h3>16°C</h3>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <p>Created by Helena Stalbovska</p>
+      </footer>
+    </div>
+    <script src="/src/index.js"></script>
+  </body>
+</html>

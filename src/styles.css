@@ -1,0 +1,85 @@
+body {
+  font-family: "Orbitron", sans-serif;
+  background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+}
+
+form {
+  text-align: right;
+}
+
+h1 {
+  color: #ff2281;
+  text-shadow: 1px 1px 1px #e8e500;
+  padding-top: 15px;
+}
+
+h2,
+h3 {
+  color: #b76cfd;
+  text-shadow: 1px 1px 1px #15eb20;
+}
+
+h4 {
+  color: #e8e500;
+  text-shadow: 1px 1px 1px #eb2282;
+}
+
+h5 {
+  color: #eb2282;
+  text-shadow: 1px 1px 1px #e8e500;
+}
+
+i {
+  color: #75d5fd;
+  text-shadow: 1px 1px 1px #e8e500;
+  font-size: 32px;
+}
+
+p {
+  font-size: 12px;
+  text-align: center;
+  color: blueviolet;
+  text-shadow: 1px 1px 1px #e8e500;
+}
+
+.weather-app {
+  background-image: linear-gradient(to bottom, #cfd9df21 0%, #e2ebf033 100%),
+    url("https://c4.wallpaperflare.com/wallpaper/95/981/117/mountains-music-stars-neon-wallpaper-preview.jpg");
+  background-size: cover;
+  max-width: 800px;
+  margin: 15px auto;
+  padding: 25px;
+  border-radius: 20px;
+}
+
+.temperature-units {
+  display: flex;
+}
+
+.emoji {
+  display: block;
+  font-size: 50px;
+}
+
+.units {
+  margin-left: 10px;
+  color: #b76cfd;
+  text-shadow: 1px 1px 1px #15eb20;
+  font-size: 21px;
+}
+
+.units a {
+  color: #b76cfd;
+  text-shadow: 1px 1px 1px #15eb20;
+}
+
+.location-button {
+  margin: 0;
+  padding: 1px 4px;
+}
+
+.fa-map-marker-alt {
+  font-size: 13px;
+  color: black;
+  text-shadow: none;
+}
