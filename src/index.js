@@ -1,4 +1,5 @@
-let now = new Date();
+function formatDate(props) {     
+let now = new Date(props);
 let hours = now.getHours();
 let minutes = now.getMinutes();
 if (hours < 10) {
@@ -17,8 +18,11 @@ let days = [
   "Saturday"
 ];
 let day = days[now.getDay()];
-let formatDate = document.querySelector("#formatDate");
-formatDate.innerHTML = `${day}, ${hours}:${minutes}`;
+
+return `${day}, ${hours}:${minutes}`;
+
+}
+
 
 // function displaying weather info from API
 function displayWeather(response) {
@@ -28,7 +32,9 @@ function displayWeather(response) {
   let humidity = response.data.main.humidity;
   let wind = response.data.wind.speed;
   let description = response.data.weather[0].description;
-//     !!!                  to ADD: time, description, icon, forecast
+  let datum = 1000 * response.data.dt;
+
+//     !!!                  to ADD: time, forecast
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = `${city}, ${country}`;
 
@@ -38,15 +44,14 @@ function displayWeather(response) {
   let humidityElement=document.querySelector("#humidity");
   humidityElement.innerHTML = humidity;
 
-  let windElement =document.querySelector("#wind-speed");
+  let windElement = document.querySelector("#wind-speed");
   windElement.innerHTML = Math.round(wind);
-
-
 
   let descriptionElement = document.querySelector("#description");
   descriptionElement.innerHTML = description;
 
-
+  let datumElement = document.querySelector("#formatDate");
+  datumElement.innerHTML = formatDate(datum);
   
 
   let iconElement = document.querySelector("#icon");
