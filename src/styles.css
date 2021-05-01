@@ -43,7 +43,7 @@ p {
 }
 
 .weather-app {
-  background-image: linear-gradient(to bottom, #cfd9df21 0%, #e2ebf033 100%),
+  background-image: linear-gradient(to bottom, #cbcdcf8a 0%, #d9dbdb46 100%),
     url("https://c4.wallpaperflare.com/wallpaper/95/981/117/mountains-music-stars-neon-wallpaper-preview.jpg");
   background-size: cover;
   max-width: 800px;
@@ -69,8 +69,8 @@ p {
 }
 
 .units a {
-  color: #b76cfd;
-  text-shadow: 1px 1px 1px #15eb20;
+  color: #15eb20;
+  text-shadow: 1px 1px 1px #b76cfd;
 }
 
 .location-button {
@@ -82,4 +82,10 @@ p {
   font-size: 13px;
   color: black;
   text-shadow: none;
+}
+.units .active {
+  text-decoration: none;
+  cursor: default;
+  color: #b76cfd;
+  text-shadow: 1px 1px 1px #15eb20;
 }

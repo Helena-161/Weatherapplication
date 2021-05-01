@@ -24,13 +24,30 @@ formatDate.innerHTML = `${day}, ${hours}:${minutes}`;
 function displayWeather(response) {
   let city = response.data.name;
   let country = response.data.sys.country;
-
   tempC = response.data.main.temp;
-
+  let humidity = response.data.main.humidity;
+  let wind = response.data.wind.speed;
+  
+//     !!!                  to ADD: time, description, icon, forecast
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = `${city}, ${country}`;
+
   let temperatureElement = document.querySelector("#temp");
   temperatureElement.innerHTML = Math.round(tempC);
+
+  let humidityElement=document.querySelector("#humidity");
+  humidityElement.innerHTML = humidity;
+
+  let windElement =document.querySelector("#wind-speed");
+  windElement.innerHTML = Math.round(wind);
+
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.setAttribute ("alt", `${response.data.weather[0].description}@2x.png`);
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute ("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
+  
 }
 
 function citySearch(city) {
@@ -53,19 +70,24 @@ function citySubmit(event) {
 
 function unitCelsius(event) {
   event.preventDefault();
+  fahrenheitTemp.classList.remove("active");
+  celsiusTemp.classList.add("active");
   let currentTempC = document.querySelector("#temp");
   currentTempC.innerHTML = Math.round(tempC);
 }
-
+//
 function unitFahrenheit(event) {
   event.preventDefault();
   let tempF = tempC * 1.8 + 32;
+  celsiusTemp.classList.remove("active");
+  fahrenheitTemp.classList.add("active");
   let currentTempF = document.querySelector("#temp");
   currentTempF.innerHTML = Math.round(tempF);
 }
 
 let fahrenheitTemp = document.querySelector("#fahrenheit");
 fahrenheitTemp.addEventListener("click", unitFahrenheit);
+
 
 let celsiusTemp = document.querySelector("#celsius");
 celsiusTemp.addEventListener("click", unitCelsius);
@@ -94,3 +116,4 @@ function fetchLocation(event) {
 
 let locationButton = document.querySelector("#location-button");
 locationButton.addEventListener("click", fetchLocation);
+// API call for humidity and wind-speed
