@@ -89,3 +89,6 @@ p {
   color: #b76cfd;
   text-shadow: 1px 1px 1px #15eb20;
 }
+.description::first-letter {
+  text-transform: capitalize;
+}

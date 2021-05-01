@@ -27,7 +27,7 @@ function displayWeather(response) {
   tempC = response.data.main.temp;
   let humidity = response.data.main.humidity;
   let wind = response.data.wind.speed;
-  
+  let description = response.data.weather[0].description;
 //     !!!                  to ADD: time, description, icon, forecast
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = `${city}, ${country}`;
@@ -41,12 +41,17 @@ function displayWeather(response) {
   let windElement =document.querySelector("#wind-speed");
   windElement.innerHTML = Math.round(wind);
 
+
+
   let descriptionElement = document.querySelector("#description");
-  descriptionElement.setAttribute ("alt", `${response.data.weather[0].description}@2x.png`);
+  descriptionElement.innerHTML = description;
+
+
+  
 
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute ("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-
+  iconElement.setAttribute ("alt", `${response.data.weather[0].description}`);
   
 }
 
