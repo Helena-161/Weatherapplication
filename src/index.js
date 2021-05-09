@@ -1,28 +1,68 @@
-function formatDate(props) {     
-let now = new Date(props);
-let hours = now.getHours();
-let minutes = now.getMinutes();
-if (hours < 10) {
-  hours = `0${hours}`;
-}
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday"
-];
-let day = days[now.getDay()];
+function formatDate(props) {
+  let now = new Date(props);
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
 
-return `${day}, ${hours}:${minutes}`;
-
+  return `${day}, ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+//function displaying forecast
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = "";
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col">
+          <h1 class="forecast-day">${formatDay(forecastDay.dt)}</h1>
+          <img src="/src/media/${forecastDay.weather[0].icon}.png" alt="${
+          forecastDay.weather[0].description
+        }" id="forecast-icon" />
+          <h3 class="forecast-temperature-min" id = "forecast-min">${Math.round(
+            forecastDay.temp.min
+          )} °C</h3>
+          <h3 class="forecast-temperature-max" id = "forecast-max">${Math.round(
+            forecastDay.temp.max
+          )} °C</h3>
+        </div>`;
+    }
+  });
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "b61fef651891eb9cf133b7845c0e062a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 
 // function displaying weather info from API
 function displayWeather(response) {
@@ -34,14 +74,14 @@ function displayWeather(response) {
   let description = response.data.weather[0].description;
   let datum = 1000 * response.data.dt;
 
-//     !!!                  to ADD: time, forecast
+  //     !!!                  to ADD: time, forecast
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = `${city}, ${country}`;
 
   let temperatureElement = document.querySelector("#temp");
   temperatureElement.innerHTML = Math.round(tempC);
 
-  let humidityElement=document.querySelector("#humidity");
+  let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = humidity;
 
   let windElement = document.querySelector("#wind-speed");
@@ -52,12 +92,16 @@ function displayWeather(response) {
 
   let datumElement = document.querySelector("#formatDate");
   datumElement.innerHTML = formatDate(datum);
-  
 
   let iconElement = document.querySelector("#icon");
-  iconElement.setAttribute ("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-  iconElement.setAttribute ("alt", `${response.data.weather[0].description}`);
-  
+  iconElement.setAttribute(
+    "src",
+    `/src/media/${response.data.weather[0].icon}.png`
+  );
+
+  iconElement.setAttribute("alt", `${response.data.weather[0].description}`);
+
+  getForecast(response.data.coord);
 }
 
 function citySearch(city) {
@@ -98,7 +142,6 @@ function unitFahrenheit(event) {
 let fahrenheitTemp = document.querySelector("#fahrenheit");
 fahrenheitTemp.addEventListener("click", unitFahrenheit);
 
-
 let celsiusTemp = document.querySelector("#celsius");
 celsiusTemp.addEventListener("click", unitCelsius);
 
@@ -126,4 +169,3 @@ function fetchLocation(event) {
 
 let locationButton = document.querySelector("#location-button");
 locationButton.addEventListener("click", fetchLocation);
-// API call for humidity and wind-speed

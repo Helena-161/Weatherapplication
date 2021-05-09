@@ -41,6 +41,9 @@ p {
   color: blueviolet;
   text-shadow: 1px 1px 1px #e8e500;
 }
+img {
+  width: 50px;
+}
 
 .weather-app {
   background-image: linear-gradient(to bottom, #cbcdcf8a 0%, #d9dbdb46 100%),
