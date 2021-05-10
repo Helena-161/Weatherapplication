@@ -43,13 +43,13 @@ function displayForecast(response) {
         forecastHTML +
         `<div class="col">
           <h1 class="forecast-day">${formatDay(forecastDay.dt)}</h1>
-          <img src="../media/${forecastDay.weather[0].icon}.png" alt="${
+          <img src="/src/media/${forecastDay.weather[0].icon}.png" alt="${
           forecastDay.weather[0].description
-        }" id="forecast-icon" />
-          <h3 class="forecast-temperature-min" id = "forecast-min">${Math.round(
+        }" />
+          <h3 class="forecast-temperature-min" >${Math.round(
             forecastDay.temp.min
           )} °C</h3>
-          <h3 class="forecast-temperature-max" id = "forecast-max">${Math.round(
+          <h3 class="forecast-temperature-max" >${Math.round(
             forecastDay.temp.max
           )} °C</h3>
         </div>`;
@@ -98,7 +98,6 @@ function displayWeather(response) {
     "src",
     `/src/media/${response.data.weather[0].icon}.png`
   );
-
   iconElement.setAttribute("alt", `${response.data.weather[0].description}`);
 
   getForecast(response.data.coord);

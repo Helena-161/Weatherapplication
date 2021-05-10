@@ -9,37 +9,37 @@ form {
 
 h1 {
   color: #ff2281;
-  text-shadow: 1px 1px 1px #e8e500;
+  text-shadow: 2px 2px 2px #e8e500;
   padding-top: 15px;
 }
 
 h2,
 h3 {
-  color: #b76cfd;
-  text-shadow: 1px 1px 1px #15eb20;
+  color: #15eb20;
+  text-shadow: 2px 2px 2px blue;
 }
 
 h4 {
   color: #e8e500;
-  text-shadow: 1px 1px 1px #eb2282;
+  text-shadow: 2px 2px 2px #eb2282;
 }
 
 h5 {
   color: #eb2282;
-  text-shadow: 1px 1px 1px #e8e500;
+  text-shadow: 2px 2px 2px #e8e500;
 }
 
 i {
-  color: 4cc9fo;
-  text-shadow: 1px 1px 1px #e8e500;
+  color: blueviolet;
+  text-shadow: 2px 2px 2px #e8e500;
   font-size: 32px;
 }
 
 p {
   font-size: 12px;
   text-align: center;
-  color: blueviolet;
-  text-shadow: 1px 1px 1px #e8e500;
+  color: #e8e500;
+  text-shadow: 2px 2px 2px blueviolet;
 }
 img {
   width: 50px;
@@ -66,14 +66,14 @@ img {
 
 .units {
   margin-left: 10px;
-  color: #b76cfd;
+  color: #2911b3;
   text-shadow: 1px 1px 1px #15eb20;
   font-size: 21px;
 }
 
 .units a {
   color: #15eb20;
-  text-shadow: 1px 1px 1px #b76cfd;
+  text-shadow: 2px 2px 2px #2911b3;
 }
 
 .location-button {
@@ -89,8 +89,8 @@ img {
 .units .active {
   text-decoration: none;
   cursor: default;
-  color: #b76cfd;
-  text-shadow: 1px 1px 1px #15eb20;
+  color: #2911b3;
+  text-shadow: 2px 2px 2px #15eb20;
 }
 .description::first-letter {
   text-transform: capitalize;
