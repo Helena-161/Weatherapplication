@@ -43,7 +43,7 @@ function displayForecast(response) {
         forecastHTML +
         `<div class="col">
           <h1 class="forecast-day">${formatDay(forecastDay.dt)}</h1>
-          <img src="/src/media/${forecastDay.weather[0].icon}.png" alt="${
+          <img src="../media/${forecastDay.weather[0].icon}.png" alt="${
           forecastDay.weather[0].description
         }" />
           <h3 class="forecast-temperature-min" >${Math.round(
@@ -96,7 +96,7 @@ function displayWeather(response) {
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
-    `/src/media/${response.data.weather[0].icon}.png`
+    `../media/${response.data.weather[0].icon}.png`
   );
   iconElement.setAttribute("alt", `${response.data.weather[0].description}`);
 
