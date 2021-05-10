@@ -43,7 +43,7 @@ function displayForecast(response) {
         forecastHTML +
         `<div class="col">
           <h1 class="forecast-day">${formatDay(forecastDay.dt)}</h1>
-          <img src="/src/media/${forecastDay.weather[0].icon}.png" alt="${
+          <img src="../media/${forecastDay.weather[0].icon}.png" alt="${
           forecastDay.weather[0].description
         }" id="forecast-icon" />
           <h3 class="forecast-temperature-min" id = "forecast-min">${Math.round(
