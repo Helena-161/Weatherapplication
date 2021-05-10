@@ -32,7 +32,6 @@ function formatDay(timestamp) {
 
 //function displaying forecast
 function displayForecast(response) {
-  console.log(response.data.daily);
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = "";
@@ -45,13 +44,9 @@ function displayForecast(response) {
           <h1 class="forecast-day">${formatDay(forecastDay.dt)}</h1>
           <img src="../media/${forecastDay.weather[0].icon}.png" alt="${
           forecastDay.weather[0].description
-        }" />
-          <h3 class="forecast-temperature-min" >${Math.round(
-            forecastDay.temp.min
-          )} °C</h3>
-          <h3 class="forecast-temperature-max" >${Math.round(
-            forecastDay.temp.max
-          )} °C</h3>
+        }" class="forecast-icon" />
+          <h3 class="forecast-temp" >${Math.round(forecastDay.temp.min)} °C</h3>
+          <h3 class="forecast-temp" >${Math.round(forecastDay.temp.max)} °C</h3>
         </div>`;
     }
   });

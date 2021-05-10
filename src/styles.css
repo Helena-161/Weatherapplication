@@ -10,7 +10,8 @@ form {
 h1 {
   color: #ff2281;
   text-shadow: 2px 2px 2px #e8e500;
-  padding-top: 15px;
+  padding-top: 10px;
+  font-weight: 700;
 }
 
 h2,
@@ -26,6 +27,7 @@ h4 {
 
 h5 {
   color: #eb2282;
+  font-weight: 600;
   text-shadow: 2px 2px 2px #e8e500;
 }
 
@@ -41,8 +43,15 @@ p {
   color: #e8e500;
   text-shadow: 2px 2px 2px blueviolet;
 }
-img {
+
+img.forecast-icon {
   width: 50px;
+  margin-bottom: 8px;
+}
+
+img.weather-icon {
+  width: 80px;
+  margin-bottom: 8px;
 }
 
 .weather-app {
@@ -50,7 +59,7 @@ img {
     url("https://c4.wallpaperflare.com/wallpaper/95/981/117/mountains-music-stars-neon-wallpaper-preview.jpg");
   background-size: cover;
   max-width: 800px;
-  margin: 15px auto;
+  margin: 12px auto;
   padding: 25px;
   border-radius: 20px;
 }
@@ -64,16 +73,33 @@ img {
   font-size: 50px;
 }
 
+h2.weather-temp {
+  font-size: 36px;
+  font-weight: 700;
+}
+h1.forecast-day {
+  font-size: 22px;
+  font-weight: 600;
+}
+h3.forecast-temp {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
 .units {
   margin-left: 10px;
-  color: #2911b3;
-  text-shadow: 1px 1px 1px #15eb20;
-  font-size: 21px;
+  color: #15eb20;
+  text-shadow: 2px 2px 2px blue;
+  font-size: 22px;
+  font-weight: 700;
 }
 
 .units a {
-  color: #15eb20;
-  text-shadow: 2px 2px 2px #2911b3;
+  color: blue;
+  text-shadow: 2px 2px 2px lightskyblue;
+  /*color: #15eb20;
+  text-shadow: 2px 2px 2px #2911b3; */
 }
 
 .location-button {
@@ -86,11 +112,11 @@ img {
   color: black;
   text-shadow: none;
 }
-.units .active {
+.units a.active {
   text-decoration: none;
   cursor: default;
-  color: #2911b3;
-  text-shadow: 2px 2px 2px #15eb20;
+  color: #15eb20;
+  text-shadow: 2px 2px 2px blue;
 }
 .description::first-letter {
   text-transform: capitalize;
