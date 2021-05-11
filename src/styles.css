@@ -40,7 +40,7 @@ i {
 p {
   font-size: 12px;
   text-align: center;
-  color: #e8e500;
+  color: #e24211;
   text-shadow: 2px 2px 2px blueviolet;
 }
 
@@ -108,8 +108,8 @@ h3.forecast-temp {
 }
 
 .fa-map-marker-alt {
-  font-size: 13px;
-  color: black;
+  font-size: 14px;
+  color: rgb(38, 15, 92);
   text-shadow: none;
 }
 .units a.active {
